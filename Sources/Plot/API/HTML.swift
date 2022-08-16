@@ -121,7 +121,7 @@ public extension HTML {
     /// The context within an HTML list, such as `<ul>` or `<ol>` elements.
     enum ListContext: HTMLStylableContext {}
     /// The context within an HTML `<meta>` element.
-    enum MetaContext: HTMLNamableContext {}
+    enum MetaContext: HTMLNamableContext, HTMLPropertyContext {}
     /// The context within an HTML `<option>` element.
     enum OptionContext: HTMLValueContext {}
     /// The context within an HTML `<picture>` element.
@@ -168,6 +168,9 @@ public protocol HTMLNamableContext: HTMLContext {}
 /// Context shared among all HTML elements that are lists of options,
 /// such as `<select>` and `<datalist>`.
 public protocol HTMLOptionListContext: HTMLContext {}
+/// Context shared among all HTML elements that support the `property`
+/// attribute, such as `<meta>`.
+public protocol HTMLPropertyContext: HTMLContext {}
 /// Context shared between `<head>` and `<body>`, in which scripts
 /// can be inlined or referenced.
 public protocol HTMLScriptableContext: HTMLContext {}
