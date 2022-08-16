@@ -49,7 +49,7 @@ public extension Node where Context == HTML.HeadContext {
         .group([
             .element(named: "title", text: title),
             .meta(.name("twitter:title"), .content(title)),
-            .meta(.property("og:title"), .content(title))
+            .meta(.name("title"), .property("og:title"), .content(title))
         ])
     }
 
@@ -57,9 +57,8 @@ public extension Node where Context == HTML.HeadContext {
     /// - parameter text: A text that describes the page's content.
     static func description(_ text: String) -> Node {
         .group([
-            .meta(.name("description"), .content(text)),
             .meta(.name("twitter:description"), .content(text)),
-            .meta(.property("og:description"), .content(text))
+            .meta(.name("description"), .property("og:description"), .content(text))
         ])
     }
 
@@ -71,7 +70,7 @@ public extension Node where Context == HTML.HeadContext {
 
         return .group([
             .meta(.name("twitter:image"), .content(url)),
-            .meta(.property("og:image"), .content(url))
+            .meta(.name("image"), .property("og:image"), .content(url))
         ])
     }
 
